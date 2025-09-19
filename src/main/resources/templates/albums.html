@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Albums</title>
+</head>
+<body>
+<h1>All Albums</h1>
+<form th:action="@{/albums}" method="post">
+  <input type="text" name="title" placeholder="앨범 제목 입력" required>
+  <button type="submit">앨범 추가</button>
+</form>
+<div th:each="a : ${albums}">
+  <h3 th:text="${a.albumId}">Album Id</h3>
+  <h3 th:text="${a.title}">Album Title</h3>
+  <h3 th:text="${a.photos.get(0).url}">Thumbnail url</h3>
+  <p>User: <span th:text="${a.user.userId}"></span></p>
+
+  <form th:action="@{'/albums/' + ${a.albumId}}" method="post">
+    <input type="hidden" name="_method" value="put"/>
+    <input type="text" name="title" th:value="${a.title}" required>
+    <button type="submit">수정</button>
+  </form>
+  <form th:action="@{'/albums/' + ${a.albumId}}" method="post">
+    <input type="hidden" name="_method" value="delete"/>
+    <button type="submit">삭제</button>
+  </form>
+  <hr>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+### 회원 가입 (POST)
+###POST http://localhost:8080/members
+###Content-Type: application/json
+
+###{
+###  "name": "김감자"
+###}
+
+### 전체 회원 조회 (GET)
+###GET http://localhost:8080/members
+
+### persist로 영속성 컨텍스트 수동 등록. 조회 가능 여부 확인
+###GET http://localhost:8080/test

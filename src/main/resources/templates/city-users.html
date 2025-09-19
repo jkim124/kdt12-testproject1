@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Users by City</title></head>
+<body>
+<h1>Users in City</h1>
+<div th:each="u : ${users}">
+  <p>Name: <span th:text="${u.name}"></span></p>
+  <p>Email: <span th:text="${u.email}"></span></p>
+  <p>Company: <span th:text="${u.company}"></span></p>
+  <hr/>
+</div>
+</body>
+</html>

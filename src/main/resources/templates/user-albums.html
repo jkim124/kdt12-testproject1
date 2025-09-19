@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>User Albums</title></head>
+<body>
+<h1 th:text="${user.name} + ' Albums'"></h1>
+<p>Email: <span th:text="${user.email}"></span></p>
+<p>Company: <span th:text="${user.company}"></span></p>
+
+<div th:each="a : ${albums}">
+  <h3 th:text="${a.title}"></h3>
+  <h3 th:text="${a.photos.get(0).url}"></h3>
+</div>
+</body>
+</html>
